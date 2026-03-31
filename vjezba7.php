@@ -1,14 +1,15 @@
 <?php 
-    $rezultat = "Ocjena iz kolegija je ";
+    $rezultat = '';
     $kOcjena = '';
 
     if(isset($_GET['k1']) && isset($_GET['k2'])){
+        $rezultat = "Ocjena iz kolegija je ";
         $K1 = (int)$_GET['k1'];
         $K2 = (int)$_GET['k2'];
         
         $kOcjena = 1;
         if($K1 > 1 && $K2 > 1){
-            $kOcjena = round(($K1 + $K2)/2);
+            $kOcjena = ceil(($K1 + $K2)/2);
         }
     }
 ?>
