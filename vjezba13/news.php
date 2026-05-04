@@ -23,6 +23,7 @@
 	else {
 		if ($action == 1) {
 			# inicijalizacija sjednice
+			$_SESSION['news_title_1'] = 'US growth faster than expected';
 			
 			print '
 			<h2>US growth faster than expected</h2>
@@ -51,6 +52,7 @@
 		}
 		else if ($action == 2) {
 			# inicijalizacija sjednice
+			$_SESSION['news_title_2'] = 'Wall Street: Tech firm surge pushes US markets higher';
 			
 			print '
 			<h2>Wall Street: Tech firm surge pushes US markets higher</h2>
@@ -79,6 +81,7 @@
 		}
 		else if ($action == 3) {
 			# inicijalizacija sjednice
+			$_SESSION['news_title_3'] = 'Hotel booking sites probed by consumer watchdog';
 			
 			print '
 			<h2>Hotel booking sites probed by consumer watchdog</h2>

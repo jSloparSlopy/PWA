@@ -3,7 +3,7 @@
 	define('__APP__', TRUE);
 	
 	# Start session
-	
+	session_start();
 	
 	# Variables MUST BE INTEGERS
     if(isset($_GET['menu'])) { $menu   = (int)$_GET['menu']; }
@@ -68,6 +68,18 @@ print '
 		print '
 		<aside><h2 style="text-align:center">ZADNJE PREGLEDANO</h2>';
 		# ispis vrijednosti $_SESSION
+		if (!empty($_SESSION['news_title_1'])) {
+			print '
+			<p><a href="index.php?menu=2&action=1">' . $_SESSION['news_title_1'] . '</a></p>';
+		}
+		if (!empty($_SESSION['news_title_2'])) {
+			print '
+			<p><a href="index.php?menu=2&action=2">' . $_SESSION['news_title_2'] . '</a></p>';
+		}
+		if (!empty($_SESSION['news_title_3'])) {
+			print '
+			<p><a href="index.php?menu=2&action=3">' . $_SESSION['news_title_3'] . '</a></p>';
+		}
 		print '
 		</aside>';
 	}
