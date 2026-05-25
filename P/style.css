@@ -148,10 +148,13 @@ nav a i {
 }
 
 /* ---------- HERO SEKCIJA ---------- */
+
 #hero {
   margin: 40px -8%;
   padding: 60px 8%;
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0000 50%, #0d0d0d 100%);
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(80,0,0,0.75) 50%, rgba(0,0,0,0.85) 100%),
+    url('https://media.jutarnji.hr/images/slike/2026/05/24/38981286.jpg?_gl=1*1eviws4*_ga*MTYzOTA2MjUzNS4xNzc3NDQ3OTk4*_ga_0PCQNHB2ZD*czE3Nzk3MDY5NjUkbzIkZzAkdDE3Nzk3MDY5NjUkajYwJGwwJGgw') center/cover no-repeat;
   border-top: 3px solid var(--red);
   border-bottom: 1px solid var(--border);
   position: relative;
@@ -891,4 +894,24 @@ footer {
   aside {
     flex-direction: column;
   }
+}
+
+.article-figure {
+  margin: 24px 0;
+  border-left: 4px solid var(--red);
+}
+
+.article-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 0 3px 3px 0;
+}
+
+.article-figure figcaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-radius: 0 0 3px 3px;
+  font-style: italic;
 }
