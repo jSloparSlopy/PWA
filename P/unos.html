@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unos vijesti — F1 Vijesti</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style/unos.css">
+  <link rel="icon" type="image/png" href="img/ikonica.png">
+</head>
+<body>
+
+  
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-logo">F1</span>
+        <span class="header-tagline">VIJESTI</span>
+      </div>
+      <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Početna</a>
+        <a href="index.html#najnovije">Najnovije</a>
+        <a href="index.html#vozaci">Vozači</a>
+        <a href="index.html#timovi">Timovi</a>
+        <a href="index.html#staze">Staze</a>
+        <a href="unos.html" style="color:var(--red)"><i class="fa-solid fa-pen"></i> Unos</a>
+      </nav>
+      <div class="header-season">SEZONA 2026</div>
+    </div>
+    <div class="header-stripe"></div>
+  </header>
+
+  
+  <main>
+    <div class="form-page-wrapper">
+
+      <p class="form-page-title"><i class="fa-solid fa-pen-to-square"></i> Redakcija</p>
+      <h1 class="form-page-heading">Unos nove vijesti</h1>
+      <p class="form-page-sub">Ispunite obrazac kako biste objavili novu F1 vijest na portalu. Sva polja označena s <span style="color:var(--red)">*</span> su obavezna.</p>
+
+      <div class="form-card">
+        <form name="f1_vijest" action="skripta.php" method="POST" enctype="multipart/form-data">
+
+          
+          <div class="form-group">
+            <label class="form-label" for="naslov">
+              <i class="fa-solid fa-heading"></i> Naslov vijesti <span class="form-required">*</span>
+            </label>
+            <input
+              type="text"
+              id="naslov"
+              name="naslov"
+              class="form-input"
+              placeholder="npr. Antonelli pobijedio u Monaku..."
+              autofocus
+              autocomplete="off"
+              required>
+            <p class="form-hint">Unesite jasan i privlačan naslov. Maksimalno 120 znakova.</p>
+          </div>
+
+          <!-- KATEGORIJA + DATUM -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="kategorija">
+                <i class="fa-solid fa-tag"></i> Kategorija <span class="form-required">*</span>
+              </label>
+              <select id="kategorija" name="kategorija" class="form-select" required>
+                <option value="" disabled selected>Odaberi kategoriju...</option>
+                <option value="Izvještaj s utrke">🏁 Izvještaj s utrke</option>
+                <option value="Kvalifikacije">⏱️ Kvalifikacije</option>
+                <option value="Vijesti o vozačima">🪖 Vijesti o vozačima</option>
+                <option value="Vijesti o timovima">🔧 Vijesti o timovima</option>
+                <option value="Tehnika">⚙️ Tehnika</option>
+                <option value="Transferi">🔄 Transferi</option>
+                <option value="Intervju">🎙️ Intervju</option>
+                <option value="Analiza">📊 Analiza</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="autor">
+                <i class="fa-solid fa-user"></i> Autor
+              </label>
+              <input
+                type="text"
+                id="autor"
+                name="autor"
+                class="form-input"
+                placeholder="Vaše ime i prezime"
+                value="Jan Šlopar">
+            </div>
+          </div>
+
+          <div class="form-divider"></div>
+
+          
+          <div class="form-group">
+            <label class="form-label" for="sazetak">
+              <i class="fa-solid fa-align-left"></i> Kratki sažetak vijesti <span class="form-required">*</span>
+            </label>
+            <textarea
+              id="sazetak"
+              name="sazetak"
+              class="form-textarea"
+              rows="3"
+              placeholder="Kratki uvod koji će se prikazivati na naslovnoj stranici i u pregledu vijesti..."
+              required></textarea>
+            <p class="form-hint">Preporučeno do 200 znakova. Ovaj tekst prikazuje se u kartici vijesti.</p>
+          </div>
+
+          <!-- TEKST VIJESTI -->
+          <div class="form-group">
+            <label class="form-label" for="tekst">
+              <i class="fa-solid fa-newspaper"></i> Tekst vijesti <span class="form-required">*</span>
+            </label>
+            <textarea
+              id="tekst"
+              name="tekst"
+              class="form-textarea"
+              rows="10"
+              placeholder="Unesite cjelokupni tekst vijesti ovdje..."
+              required></textarea>
+          </div>
+
+          <div class="form-divider"></div>
+
+          
+          <div class="form-group">
+            <label class="form-label">
+              <i class="fa-solid fa-image"></i> Naslovna slika
+            </label>
+            <div class="form-file-wrap">
+              <label class="form-file-label" for="slika">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <div>
+                  <strong>Kliknite za odabir slike</strong>
+                  <span style="display:block;font-size:0.72rem;margin-top:2px;">JPG, PNG ili GIF — max. 5 MB</span>
+                </div>
+              </label>
+              <input
+                type="file"
+                id="slika"
+                name="slika"
+                class="form-file-input"
+                accept="image/jpeg,image/png,image/gif">
+            </div>
+          </div>
+
+          
+          <div class="form-group">
+            <label class="form-label">
+              <i class="fa-solid fa-eye"></i> Vidljivost
+            </label>
+            <label class="form-checkbox-wrap">
+              <input type="checkbox" name="prikaz" value="da" checked>
+              <div class="form-checkbox-text">
+                Prikaži vijest na portalu
+                <span>Vijest će biti vidljiva svim posjetiteljima odmah nakon objave.</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- GUMBI -->
+          <div class="form-actions">
+            <button type="reset" class="btn-reset">
+              <i class="fa-solid fa-rotate-left"></i> Poništi
+            </button>
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-paper-plane"></i> Objavi vijest
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">F1 <span>VIJESTI</span></div>
+      <nav class="footer-nav">
+        <a href="index.html">Početna</a>
+        <a href="index.html#najnovije">Vijesti</a>
+        <a href="index.html#vozaci">Vozači</a>
+        <a href="index.html#timovi">Timovi</a>
+        <a href="unos.html">Unos</a>
+      </nav>
+      <div class="footer-info">
+        <p>Jan Šlopar &nbsp;|&nbsp; <a href="mailto:jan.slopar@student.hr">jan.slopar@student.hr</a> &nbsp;|&nbsp; 2026.</p>
+        <p class="footer-copy">Kolegij: HTML &amp; CSS, 1. semestar &mdash; Programiranje web aplikacija</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
