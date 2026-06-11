@@ -273,3 +273,30 @@ footer {
     color: #fff;
     border-color: #1a6fbd;
 }
+
+/*III. Faza*/
+.uspjeh {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2e7d32;
+}
+
+.admin-clanak {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.category {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a6fbd;
+    margin-bottom: 15px;
+    border-left: 3px solid #1a6fbd;
+    padding-left: 8px;
+}

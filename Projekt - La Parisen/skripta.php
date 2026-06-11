@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Parisien - <?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?></title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 </head>
 <body>
     <header>
