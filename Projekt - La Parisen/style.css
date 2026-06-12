@@ -192,12 +192,24 @@ article a:hover h3 {
 }
 
 footer {
-    background-color: #f0f3f5;
+    background-color: #1a1a1a;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     font-size: 13px;
-    color: #666;
-    border-top: 1px solid #ddd;
+    color: #aaa;
+    margin-top: 50px;
+    line-height: 2;
+}
+
+footer a {
+    color: #4a9eda;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #7bc4f5;
 }
 
 /*II. Faza*/

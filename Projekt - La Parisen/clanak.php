@@ -57,8 +57,6 @@
         <?php mysqli_close($dbc); ?>
     </main>
 
-    <footer>
-        <p>© Le Parisien | Jan Šlopar | jslopar@tvz.hr | 2026</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

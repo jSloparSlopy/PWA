@@ -159,8 +159,7 @@ if (isset($_POST['prijava'])) {
                         <select name="category" class="form-field-textual">
                             <option value="parisien" ' . ($row['kategorija'] == 'parisien' ? 'selected' : '') . '>Parisien</option>
                             <option value="vivre" ' . ($row['kategorija'] == 'vivre' ? 'selected' : '') . '>Vivre Mieux</option>
-                            <option value="politique" ' . ($row['kategorija'] == 'politique' ? 'selected' : '') . '>Politique</option>
-                            <option value="economie" ' . ($row['kategorija'] == 'economie' ? 'selected' : '') . '>Économie</option>
+                            
                         </select>
                     </div>
                   </div>';
@@ -192,8 +191,6 @@ if (isset($_POST['prijava'])) {
     ?>
     </main>
 
-    <footer>
-        <p>© Le Parisien | Jan Šlopar | jslopar@tvz.hr | 2026</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

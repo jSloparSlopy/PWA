@@ -93,8 +93,7 @@ session_start();
                         <select name="category" id="category" class="form-field-textual">
                             <option value="parisien">Parisien</option>
                             <option value="vivre">Vivre Mieux</option>
-                            <option value="politique">Politique</option>
-                            <option value="economie">Économie</option>
+                        
                         </select>
                     </div>
                 </div>
@@ -113,8 +112,6 @@ session_start();
         </section>
     </main>
 
-    <footer>
-         <p>© Le Parisien | Jan Šlopar | jslopar@tvz.hr | 2026</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
