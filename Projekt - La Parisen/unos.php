@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,36 +22,43 @@
                 <li><a href="kategorija.php?kategorija=vivre">VIVRE</a></li>
                 <li><a href="unos.php">UNOS</a></li>
                 <li><a href="administrator.php">ADMINISTRACIJA</a></li>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">ODJAVA (<?php echo $_SESSION['username']; ?>)</a></li>
+                <?php else: ?>
+                    <li><a href="administrator.php">PRIJAVA</a></li>
+                    <li><a href="registracija.php">REGISTRACIJA</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>
 
     <main>
-        <?php
-        if (isset($_POST['title'])) {
-            include 'spajanje.php';
+<?php
+    if (isset($_POST['title'])) {
+        include 'spajanje.php';
 
-            $picture = $_FILES['pphoto']['name'];
-            $title = $_POST['title'];
-            $about = $_POST['about'];
-            $content = $_POST['content'];
-            $category = $_POST['category'];
-            $date = date('d.m.Y.');
-            $archive = isset($_POST['archive']) ? 1 : 0;
+        $picture = $_FILES['pphoto']['name'];
+        $title = $_POST['title'];
+        $about = $_POST['about'];
+        $content = $_POST['content'];
+        $category = $_POST['category'];
+        $date = date('d.m.Y.');
+        $archive = isset($_POST['archive']) ? 1 : 0;
+        $autor_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
 
-            if ($picture != '') {
-                $target_dir = 'img/' . $picture;
-                move_uploaded_file($_FILES['pphoto']['tmp_name'], $target_dir);
-            }
-
-            $query = "INSERT INTO vijesti (datum, naslov, sazetak, tekst, slika, kategorija, arhiva) 
-                      VALUES ('$date', '$title', '$about', '$content', '$picture', '$category', '$archive')";
-            $result = mysqli_query($dbc, $query) or die('Error querying database.');
-            mysqli_close($dbc);
-
-            echo '<p class="uspjeh">Vijest uspješno dodana! <a href="index.php">Povratak na početnu</a></p>';
+        if ($picture != '') {
+            $target_dir = 'img/' . $picture;
+            move_uploaded_file($_FILES['pphoto']['tmp_name'], $target_dir);
         }
-        ?>
+
+        $query = "INSERT INTO vijesti (datum, naslov, sazetak, tekst, slika, kategorija, arhiva, autor_id) 
+                VALUES ('$date', '$title', '$about', '$content', '$picture', '$category', '$archive', '$autor_id')";
+        $result = mysqli_query($dbc, $query) or die('Error querying database.');
+        mysqli_close($dbc);
+
+        echo '<p class="uspjeh">Vijest uspješno dodana! <a href="index.php">Povratak na početnu</a></p>';
+    }
+    ?>
 
         <section id="unos-forma">
             <h2>Unos nove vijesti</h2>

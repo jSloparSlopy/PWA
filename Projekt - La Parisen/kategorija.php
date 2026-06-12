@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,6 +20,12 @@
                 <li><a href="kategorija.php?kategorija=vivre">VIVRE</a></li>
                 <li><a href="unos.php">UNOS</a></li>
                 <li><a href="administrator.php">ADMINISTRACIJA</a></li>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">ODJAVA (<?php echo $_SESSION['username']; ?>)</a></li>
+                <?php else: ?>
+                    <li><a href="administrator.php">PRIJAVA</a></li>
+                    <li><a href="registracija.php">REGISTRACIJA</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

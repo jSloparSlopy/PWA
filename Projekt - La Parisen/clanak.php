@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,6 +20,12 @@
                 <li><a href="kategorija.php?kategorija=vivre">VIVRE</a></li>
                 <li><a href="unos.php">UNOS</a></li>
                 <li><a href="administrator.php">ADMINISTRACIJA</a></li>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">ODJAVA (<?php echo $_SESSION['username']; ?>)</a></li>
+                <?php else: ?>
+                    <li><a href="administrator.php">PRIJAVA</a></li>
+                    <li><a href="registracija.php">REGISTRACIJA</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>
@@ -29,7 +36,10 @@
         define('UPLPATH', 'img/');
 
         $id = $_GET['id'];
-        $query = "SELECT * FROM vijesti WHERE id=$id";
+        $query = "SELECT vijesti.*, korisnik.korisnicko_ime 
+                FROM vijesti 
+                LEFT JOIN korisnik ON vijesti.autor_id = korisnik.id 
+                WHERE vijesti.id = $id";
         $result = mysqli_query($dbc, $query);
         $row = mysqli_fetch_array($result);
         ?>
@@ -37,7 +47,7 @@
         <article id="clanak">
             <p class="category"><?php echo strtoupper($row['kategorija']); ?></p>
             <h1><?php echo $row['naslov']; ?></h1>
-            <p class="datum">AUTOR:</p>
+            <p class="datum">AUTOR: <?php echo $row['korisnicko_ime'] ?? 'Nepoznat'; ?></p>
             <p class="datum">OBJAVLJENO: <?php echo $row['datum']; ?></p>
             <img src="<?php echo UPLPATH . $row['slika']; ?>" alt="<?php echo $row['naslov']; ?>">
             <p><em><?php echo $row['sazetak']; ?></em></p>

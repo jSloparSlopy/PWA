@@ -19,6 +19,7 @@
                 <li><a href="kategorija.php?kategorija=vivre">VIVRE</a></li>
                 <li><a href="unos.php">UNOS</a></li>
                 <li><a href="administrator.php">ADMINISTRACIJA</a></li>
+                <li><a href="registracija.php">REGISTRACIJA</a></li>
             </ul>
         </nav>
     </header>
