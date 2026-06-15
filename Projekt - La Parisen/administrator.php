@@ -176,10 +176,10 @@ if (isset($_POST['prijava'])) {
         }
 
     } else if ($uspjesnaPrijava == true && $admin == false) {
-        echo '<p>Bok ' . $imeKorisnika . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
+        echo '<p>Pozdrav, ' . $imeKorisnika . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
 
     } else if (isset($_SESSION['username']) && $_SESSION['level'] == 0) {
-        echo '<p>Bok ' . $_SESSION['username'] . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
+        echo '<p>Pozdrav, ' . $_SESSION['username'] . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
 
     } else if ($uspjesnaPrijava == false && isset($_POST['prijava'])) {
         echo '<p class="greska">Pogrešno korisničko ime ili lozinka. <a href="registracija.php">Registrirajte se</a></p>';
